@@ -1149,5 +1149,106 @@
         "class": "icon_highlight",
         "parents": [{"class": "icon_button_control", "attributes": ["selected"]}],
         "layer0.tint": [102, 153, 204]
+    },
+////////////////////////////////////
+// VCS
+////////////////////////////////////
+    // VCS badges
+    {
+        "class": "vcs_status_badge",
+        "parents": [{"class": "file_system_entry", "attributes": ["untracked"]}],
+        "layer0.texture": "Theme - Default/common/status_untracked.png",
+        "layer0.tint": "color(var(--yellowish) blend(rgb(255, 255, 255) 60%))",
+        "layer0.opacity": 1.0,
+        "content_margin": 6
+    },
+    {
+        "class": "vcs_status_badge",
+        "parents": [{"class": "file_system_entry", "attributes": ["modified"]}],
+        "layer0.texture": "Theme - Default/common/status_modified.png",
+        "layer0.tint": "color(var(--bluish) min-contrast(var(--background) 2.5))",
+        "layer0.opacity": 1.0,
+        "content_margin": 6
+    },
+    {
+        "class": "vcs_status_badge",
+        "parents": [{"class": "file_system_entry", "attributes": ["staged"]}],
+        "layer0.texture": "Theme - Default/common/status_staged.png",
+        "layer0.tint": "color(var(--purplish) min-contrast(var(--background) 2.5))",
+        "layer0.opacity": 1.0,
+        "content_margin": 6
+    },
+    {
+        "class": "vcs_status_badge",
+        "parents": [{"class": "file_system_entry", "attributes": ["added"]}],
+        "layer0.texture": "Theme - Default/common/status_staged.png",
+        "layer0.tint": "color(var(--greenish) min-contrast(var(--background) 2.5))",
+        "layer0.opacity": 1.0,
+        "content_margin": 6
+    },
+    {
+        "class": "vcs_status_badge",
+        "parents": [{"class": "file_system_entry", "attributes": ["unmerged"]}],
+        "layer0.texture": "Theme - Default/common/status_unmerged.png",
+        "layer0.tint": "color(var(--redish) min-contrast(var(--background) 2.5))",
+        "layer0.opacity": 1.0,
+        "content_margin": 6
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["ignored"]}],
+        "color": "color(var(--background) blend(rgb(255, 255, 255) 70%))"
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [
+            {"class": "window", "attributes": ["file_light"]},
+            {"class": "file_system_entry", "attributes": ["ignored"]}
+        ],
+        "color": "color(var(--background) blend(rgb(0, 0, 0) 70%))"
+    },
+    {
+        "class": "vcs_status",
+        "spacing": 3
+    },
+    {
+        "class": "vcs_branch_icon",
+        "layer0.texture": "Theme - Default/common/branch.png",
+        "layer0.tint": [64, 64, 64, 0.8],
+        "layer0.opacity": 1.0,
+        "content_margin": [6, 11]
+    },
+    {
+        "class": "vcs_changes_annotation",
+        "font.size": 9,
+        "color": [64, 64, 64, 0.8],
+        "border_color": [64, 64, 64, 0.5],
+        "content_margin": [3, 0]
+    },
+    // VCS Filenames.
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["untracked"]}],
+        "color": "color(var(--yellowish) blend(rgb(255, 255, 255) 75%))"
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["modified"]}],
+        "color": "color(var(--bluish) blend(rgb(255, 255, 255) 75%))"
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["staged"]}],
+        "color": "color(var(--purplish) blend(rgb(255, 255, 255) 75%))"
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["added"]}],
+        "color": "color(var(--greenish) blend(rgb(255, 255, 255) 75%))"
+    },
+    {
+        "class": "sidebar_label",
+        "parents": [{"class": "file_system_entry", "attributes": ["unmerged"]}],
+        "color": "color(var(--redish) blend(rgb(255, 255, 255) 75%))"
     }
 ]
