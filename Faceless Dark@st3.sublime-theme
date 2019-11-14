@@ -472,6 +472,18 @@
         "class": "tool_tip_label_control",
         "color": [0, 0, 0]
     },
+        {
+            "class": "annotation_close_button",
+            "layer0.texture": "Theme - Default/common/light/open_file_close.png",
+            "layer0.opacity": { "target": 0.8, "speed": 4.0, "interpolation": "smoothstep" },
+            "layer0.tint": "color(var(--foreground))",
+            "content_margin": [8, 8],
+        },
+        {
+            "class": "annotation_close_button",
+            "attributes": ["hover"],
+            "layer0.opacity": { "target": 1.0, "speed": 4.0, "interpolation": "smoothstep" }
+        },
 
 ////////////////////////////////////
 // Status Bar
@@ -508,7 +520,18 @@
         "parents": [{"class": "status_bar"}],
         "font.size": 11
     },
-
+        {
+            "class": "sidebar_button_control",
+            "layer0.texture": "Theme - Default/common/sidebar_button.png",
+            "layer0.opacity": { "target": 0.4, "speed": 4.0, "interpolation": "smoothstep" },
+            "layer0.tint": "#888",
+            "content_margin": [10, 11]
+        },
+        {
+            "class": "sidebar_button_control",
+            "attributes": ["hover"],
+            "layer0.opacity": { "target": 0.7, "speed": 4.0, "interpolation": "smoothstep" },
+        },
 ////////////////////////////////////
 // Sidebar
 ////////////////////////////////////
@@ -868,6 +891,16 @@
         "selected_fg": [255, 255, 255],
         "selected_match_fg": [102, 153, 204, 255]
     },
+        {
+            "class": "quick_panel",
+            "parents": [{"class": "overlay_control goto_symbol"}],
+            "row_padding": [0, 0, 0, 0],
+        },
+        {
+            "class": "quick_panel",
+            "parents": [{"class": "overlay_control goto_symbol_in_project"}],
+            "row_padding": [0, 0, 0, 0],
+        },
 
     // Quickpanel score colors
     {
@@ -931,7 +964,242 @@
         "layer0.tint": [102, 153, 204],
         "layer0.inner_margin": [3, 1]
     },
+        // {
+        //     "class": "symbol_container",
+        //     "content_margin": [4, 1, 4, 1]
+        // },
+        // {
+        //     "class": "trigger_container",
+        //     "content_margin": [4, 1, 4, 1]
+        // },
+        {
+            "class": "auto_complete_details",
+            "tint_index": 0,
+            "layer0.opacity": 1.0,
+            "tint_modifier": [0, 0, 0, 0.1],
+            "content_margin": [8, 5, 8, 5]
+        },
+        {
+            "class": "auto_complete_details",
+            "tint_modifier": [255, 255, 255, 0.15],
+        },
+        {
+            "class": "auto_complete_info",
+            "spacing": 8,
+        },
+        {
+            "class": "auto_complete_kind_name_label",
+            "font.size": "0.9rem",
+            "font.italic": true,
+            "border_color": "color(var(--accent) a(0.8))"
+        },
+        {
+            "class": "auto_complete_description_label",
+            "font.size": "0.9rem",
+            "font.italic": true,
+        },
 
+////////////////////////////////////
+// Kind indicator
+////////////////////////////////////
+        {
+            "class": "kind_container",
+            // Extra margin on the left makes the
+            // italic kind_label look visually centered
+            "content_margin": [6, 0, 5, 0],
+            // "layer0.tint": "var(--background)",
+            // "layer0.opacity": 0.1,
+            // "layer1.tint": "black",
+            // "layer1.opacity": 0.5,
+        },
+        {
+            "class": "kind_container",
+            "parents": [
+                {"class": "quick_panel"},
+            ],
+            "layer0.tint": [235, 237, 239],
+        },
+        {
+            "class": "kind_container",
+            "parents": [
+                {"class": "auto_complete"},
+            ],
+            "layer0.tint": "var(--background)",
+        },
+        {
+            "class": "kind_container",
+            "parents": [
+                {"class": "auto_complete"},
+            ],
+            "layer1.tint": "black",
+        },
+        {
+            "class": "kind_container",
+            "parents": [
+                {"class": "auto_complete"},
+                {"class": "table_row", "attributes": ["selected"]},
+            ],
+            "layer1.tint": "white",
+        },
+        {
+            "class": "kind_container",
+            "parents": [
+                {"class": "auto_complete"},
+                {"class": "table_row", "attributes": ["selected"]},
+            ],
+            "layer1.tint": "black",
+        },
+        {
+            "class": "kind_label",
+            // "font.face": "var(font_face)",
+            // "font.size": "1.1rem",
+            "font.bold": true,
+            "font.italic": true,
+        },
+        {
+            "class": "kind_container kind_function",
+            "layer1.tint": "var(--redish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_function"}],
+            "color": "var(--redish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_function"},
+            ],
+            "color": "color(var(--redish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_keyword",
+            "layer1.tint": "var(--orangish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_keyword"}],
+            "color": "var(--orangish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_keyword"},
+            ],
+            "color": "color(var(--orangish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_markup",
+            "layer1.tint": "var(--pinkish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_markup"}],
+            "color": "var(--pinkish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_markup"},
+            ],
+            "color": "color(var(--pinkish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_namespace",
+            "layer1.tint": "var(--bluish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_namespace"}],
+            "color": "var(--bluish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_namespace"},
+            ],
+            "color": "color(var(--bluish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_navigation",
+            "layer1.tint": "var(--yellowish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_navigation"}],
+            "color": "var(--yellowish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_navigation"},
+            ],
+            "color": "color(var(--yellowish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_snippet",
+            "layer1.tint": "var(--greenish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_snippet"}],
+            "color": "var(--greenish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_snippet"},
+            ],
+            "color": "color(var(--greenish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_type",
+            "layer1.tint": "var(--purplish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_type"}],
+            "color": "var(--purplish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_type"},
+            ],
+            "color": "color(var(--purplish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
+        {
+            "class": "kind_container kind_variable",
+            "layer1.tint": "var(--cyanish)",
+            "layer1.opacity": 0.1,
+        },
+        {
+            "class": "kind_label",
+            "parents": [{"class": "kind_container kind_variable"}],
+            "color": "var(--cyanish)"
+        },
+        {
+            "class": "kind_label",
+            "parents": [
+                {"class": "quick_panel"},
+                {"class": "kind_container kind_variable"},
+            ],
+            "color": "color(var(--cyanish) min-contrast(rgb(235, 237, 239) 2.5))"
+        },
 ////////////////////////////////////
 // Bottom Panel Buttons
 ////////////////////////////////////
